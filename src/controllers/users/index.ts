@@ -1,5 +1,5 @@
-import createUser from '../../services/users/createUser';
+import createUserController from './users';
 
 export const usersController = {
-  createUser
+  createUserController
 }

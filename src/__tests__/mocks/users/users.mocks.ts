@@ -3,7 +3,7 @@ import { TUserCreate, TUserWrongCreate } from '../interfaces'
 const createUserAdmin: TUserCreate = {
     name: 'Ugo',
     email: 'ugo@kenzie.com.br',
-    password: '1234',
+    password: 'Senh@123',
     admin: true,
     active: false,
 }
@@ -11,7 +11,7 @@ const createUserAdmin: TUserCreate = {
 const createUserNotAdmin: TUserCreate = {
     name: 'Fabio',
     email: 'fabio@kenzie.com.br',
-    password: '1234',
+    password: 'Senh@123',
     admin: false,
     active: true,
 }

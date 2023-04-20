@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { TUserRequest, TUserResponse } from "../../interfaces/users";
 import { usersService } from "../../services";
 
-const createUser = async (
+const createUserController = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
@@ -13,4 +13,4 @@ const createUser = async (
   return res.status(201).json(newUser);
 };
 
-export { createUser };
+export default createUserController;

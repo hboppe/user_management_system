@@ -10,9 +10,9 @@ const usersRouters: Router = Router();
 
 usersRouters.post(
   "",
-  usersMiddlewares.ensureEmailDoesNotExist,
   usersMiddlewares.ensureDataIsValid(createUserRequestSchema),
-  usersController.createUser
+  usersMiddlewares.ensureEmailDoesNotExist,
+  usersController.createUserController
 );
 
 usersRouters.patch(
