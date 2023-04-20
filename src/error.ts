@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from "express";
+import { ZodError } from "zod";
 
 class AppErrors extends Error {
   message: string;
@@ -19,9 +20,11 @@ const handleError = (error: Error, req: Request, res: Response, next: NextFuncti
     })
   }
 
-  console.log('entrou no handle');
-  console.log(error)
+  if(error instanceof ZodError){
+    return res.status(400).json(error.flatten().fieldErrors)
+  }
 
+  console.log(error);
   return res.status(500).json({
     message: 'Internal server error.'
   })
