@@ -16,10 +16,24 @@ usersRouters.post(
 );
 
 usersRouters.patch(
-  "",
-  usersMiddlewares.ensureIdExists,
-  usersMiddlewares.ensureDataIsValid(updateUserRequestSchema)
-  //continuar: token, atualizacao
+  "/:id",
+  usersMiddlewares.ensureDataIsValid(updateUserRequestSchema),
+  usersMiddlewares.ensureTokenIsValid,
+  usersMiddlewares.ensureUserHasPermission,
+  usersController.updateUserController
 );
+
+usersRouters.delete(
+  '/:id',
+  usersMiddlewares.ensureTokenIsValid,
+  usersMiddlewares.ensureUserHasPermission,
+  usersController.deleteUserController
+)
+
+usersRouters.get(
+  '',
+  usersMiddlewares.ensureTokenIsValid,
+  
+)
 
 export default usersRouters;

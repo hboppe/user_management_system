@@ -16,6 +16,7 @@ const ensureIdExists = async (
     FROM users
     WHERE id = $1
   `;
+  
   const queryResult: QueryResult<TUserResponse> = await client.query(query, [
     id,
   ]);

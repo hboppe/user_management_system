@@ -3,7 +3,7 @@ import { QueryResult } from "pg";
 import format from "pg-format";
 import client from "../../database/config";
 import { TUserRequest, TUserResponse } from "../../interfaces/users";
-import { createUserSchemaResponse } from "../../schemas/users";
+import { userSchemaResponse } from "../../schemas/users";
 
 const createUser = async (userData: TUserRequest): Promise<TUserResponse> => {
   const hashedPassword = hashSync(userData.password, 12);
@@ -22,7 +22,7 @@ const createUser = async (userData: TUserRequest): Promise<TUserResponse> => {
 
   const queryResult: QueryResult<TUserResponse> = await client.query(query);
 
-  const validatedResponse: TUserResponse = createUserSchemaResponse.parse(
+  const validatedResponse: TUserResponse = userSchemaResponse.parse(
     queryResult.rows[0]
   );
 

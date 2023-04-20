@@ -1,5 +1,11 @@
-import createUserController from './users';
+import createUserController from './createUserController';
+import updateUserController from './updateUserController';
+import deleteUserController from './deleteUserController';
+import getAllUsers from './getAllUsers';
 
 export const usersController = {
-  createUserController
+  createUserController,
+  updateUserController,
+  deleteUserController,
+  getAllUsers
 }

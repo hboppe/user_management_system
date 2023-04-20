@@ -7,7 +7,7 @@ const createUserRequestSchema = z.object({
   admin: z.boolean().optional()
 });
 
-const createUserSchemaResponse = createUserRequestSchema.extend({
+const userSchemaResponse = createUserRequestSchema.extend({
   id: z.number().int().positive(),
   active: z.boolean(),
   admin: z.boolean()
@@ -15,9 +15,9 @@ const createUserSchemaResponse = createUserRequestSchema.extend({
   password: true
 });
 
-const updateUserRequestSchema = createUserSchemaResponse.omit({
+const updateUserRequestSchema = createUserRequestSchema.omit({
   admin: true
-})
+}).partial();
 
 const userSchema = createUserRequestSchema.extend({
   id: z.number(),
@@ -26,7 +26,7 @@ const userSchema = createUserRequestSchema.extend({
 
 export {
   createUserRequestSchema,
-  createUserSchemaResponse,
+  userSchemaResponse,
   updateUserRequestSchema,
   userSchema
 }
