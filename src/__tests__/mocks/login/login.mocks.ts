@@ -2,12 +2,12 @@ import { TUserLogin } from '../interfaces'
 
 const userAdminLogin: TUserLogin = {
     email: 'ugo@kenzie.com.br',
-    password: '1234',
+    password: 'Senh@123',
 }
 
 const userNotAdminLogin: TUserLogin = {
     email: 'fabio@kenzie.com.br',
-    password: '1234',
+    password: 'Senh@123',
 }
 
 const userWrongPasswordLogin: TUserLogin = {
