@@ -47,7 +47,8 @@ The following routes don't need a token to be accessed.
             "admin": true,
             "active": false
         }
-        ``` 
+        ```
+        
     ### Response
 
 
