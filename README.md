@@ -27,198 +27,36 @@ The following technologies were utilized to build this API:
 | PUT | users/:id/recover | Reactivate a user | 
 
 
+## **Examples of Request**
 
+### **Not authenticated routes **
 
-### **POST /users** e **PATCH /users**
-
--   **O email deve ser único:**
-
-    -   Caso seja enviado um email já registrado o retorno deve ser exatamente o abaixo:
-
-        | Resposta do servidor:       |
-        | --------------------------- |
-        | Body: Formato Json          |
-        | Status code: _409 CONFLICT_ |
-
-        ```json
-        {
-            "message": "E-mail already registered"
-        }
-        ```
-
-### Todas as rotas de **POST** e **PATCH**
-
--   **Deve haver serialização de dados:**
-
-    -   A serialização dos dados de entrada deve ser feita utilizando o zod.
-    -   Em caso de erro a mensagem retornada deve seguir o padrão a seguir:
-
-        | Resposta do servidor:          |
-        | ------------------------------ |
-        | Body: Formato Json             |
-        | Status code: _400 BAD REQUEST_ |
-
-        ```json
-        {
-            "name": ["Required"],
-            "email": ["Invalid email"],
-            "password": ["Expected string, received number"]
-        }
-        ```
-
-### **GET /users**, **PATCH /users**, **DELETE /users** e **PUT /users**
-
--   **Devem conter validação por token:**
-
-    -   Caso o token não seja enviado, deve se obter o seguinte retorno:
-        | Resposta do servidor: |
-        | ------------------------------ |
-        | Body: Formato Json |
-        | Status code: _401 UNAUTHORIZED_ |
-
-        ```json
-        {
-            "message": "Missing Bearer Token"
-        }
-        ```
-
-    -   Caso haja um erro na decodificação do token JWT, deve-se retornar a mensagem de erro padrão da biblioteca, nos parâmetros abaixo:
-        | Resposta do servidor: |
-        | ------------------------------ |
-        | Body: Formato Json |
-        | Status code: _401 UNAUTHORIZED_ |
-
-        ```json
-        {
-          "message": // mensagem padrão da biblioteca
-        }
-        ```
-
-### **GET /users** e **PUT /users/:id/recover**
-
--   **Apenas administradores podem acessar:**
-
-    -   Caso um usuário não administrador faça requisição, deve-se obter o seguinte retorno:
-        | Resposta do servidor: |
-        | ------------------------------ |
-        | Body: Formato Json |
-        | Status code: _403 FORBIDDEN_ |
-
-        ```json
-        {
-            "message": "Insufficient Permission"
-        }
-        ```
-
-### **PATCH /users/:id** e **DELETE /users/:id**
-
--   **Tanto usuários _administradores_ quanto _não administradores_ podem fazer requisições:**
-
-    -   Um usuário **_não administrador_** só pode atualizar ou deletar a sí mesmo;
-    -   Um usuário **_administrador_** pode atualizar ou deletar qualquer usuário;
-
-    -   Caso um usuário **_não administrador_** tente deletar ou atualizar outro usuário que **não** seja o dele, deve-se obter o seguinte retorno:
-        | Resposta do servidor: |
-        | ------------------------------ |
-        | Body: Formato Json |
-        | Status code: _403 FORBIDDEN_ |
-
-        ```json
-        {
-            "message": "Insufficient Permission"
-        }
-        ```
-
-### **POST /login**
-
--   **Deve validar se o usuário:**
-
-    -   Existe (email valido);
-    -   Está ativo;
-    -   Se a senha está correta.
-
-    -   Caso não passe em alguma das validações anteriores deve-se obter o seguinte retorno:
-        | Resposta do servidor: |
-        | ------------------------------ |
-        | Body: Formato Json |
-        | Status code: _401 UNAUTHORIZED_ |
-
-        ```json
-        {
-            "message": "Wrong email/password"
-        }
-        ```
-
-### **PUT /users/:id/recover**
-
--   **Deve reativar um usuário que está inativo:**
-
-    -   O valor de **_active_** deve ser alterado para **_true_**;
-    -   Caso o **_active_** do usuário com o **_id_** enviado na rota já seja **_true_**, deve-se retornar o seguinte:
-
-        | Resposta do servidor:          |
-        | ------------------------------ |
-        | Body: Formato Json             |
-        | Status code: _400 BAD REQUEST_ |
-
-        ```json
-        {
-            "message": "User already active"
-        }
-        ```
-
-### **Todas as rotas que recebem _id_ por parâmetro**
-
--   Deve verificar se o id passado existe:
--   Caso o usuário do _id_ passado não exista deverá retornar o seguinte:
-    | Resposta do servidor: |
-    | ------------------------------ |
-    | Body: Formato Json |
-    | Status code: _404 NOT FOUND_ |
-
-    ```json
-    {
-        "message": "User not found"
-    }
-    ```
-
-#
-
-## **Exemplos de Requisição**
-
-### **Rotas não autenticadas**
-
-Essas rotas não precisam de um token válido para serem acessadas.
+The following routes don't need a token to be accessed.
 
 -   **POST /users**
 
-    -   Rota de criação de usuário. A chave admin é opcional, caso não enviada deve ser definida como false.
+    -   Route to register a user. The admin key is optional, if not sent it will be set to false..
 
-        | Dados de Envio:    |
-        | ------------------ |
-        | Body: Formato Json |
-
+    ### Request
         ```json
         {
-            "name": "Fabio",
-            "email": "fabio@kenzie.com.br",
-            "password": "naomaisjunior",
+            "name": "Hanna",
+            "email": "hanna@email.com.br",
+            "password": "P@ssword123",
             "admin": true,
             "active": false
         }
-        ```
+        ``` 
+    ### Response
 
-        | Resposta do servidor:      |
-        | -------------------------- |
-        | Body: Formato Json         |
+
         | Status code: _201 CREATED_ |
 
         ```json
-        // atente-se ao valor de active recebido e retornado;
         {
             "id": 1,
-            "name": "Fabio",
-            "email": "fabio@kenzie.com.br",
+            "name": "Hanna",
+            "email": "hanna@email.com.br",
             "admin": true,
             "active": true
         }
