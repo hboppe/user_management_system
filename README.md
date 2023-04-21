@@ -50,7 +50,7 @@ The following routes don't need a token to be accessed.
         
 - **Response**
 
-| Status code: _201 CREATED_ |
+  | Status code: _201 CREATED_ |
 
   ```json
   {
@@ -94,122 +94,108 @@ In the **_header_**(header) of the request, a **_Bearer &lt;token_**&gt; must be
 | Type: Bearer          |
 | Value: JWT token      |
 
-```json
-{
-    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI..."
-}
-```
+  ```json
+  {
+      "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI..."
+  }
+  ```
 
 -   **GET - /users**
 
-    -   Rota de listagem de usuários;
-    -   Deve retornar todos os usuários da aplicação.
+    -   List all users. Just admins have access to it;
 
-        | Resposta do servidor: |
+        | Server response: |
         | --------------------- |
-        | Body: Formato Json    |
+        | Body: Json Format    |
         | Status code: _200 OK_ |
 
-        ```json
-        [
-            {
-                "id": 1,
-                "name": "Fabio",
-                "email": "fabio@kenzie.com.br",
-                "admin": true,
-                "active": true
-            },
-            {
-                "id": 2,
-                "name": "Cauan",
-                "email": "cauan@kenzie.com.br",
-                "admin": false,
-                "active": false
-            }
-        ]
-        ```
+    ```json
+    [
+        {
+            "id": 1,
+            "name": "hanna",
+            "email": "hanna@email.com.br",
+            "admin": true,
+            "active": true
+        },
+        {
+            "id": 2,
+            "name": "Cauan",
+            "email": "cauan@kenzie.com.br",
+            "admin": false,
+            "active": false
+        }
+    ]
+    ```
 
 -   **GET - /users/profile**
 
-    -   Rota de perfil. Deve retornar todos os dados dos usuário logado.
+    -   Profile route. It should return all logged user data.
 
-        | Resposta do servidor: |
+        | Server response: |
         | --------------------- |
-        | Body: Formato Json    |
+        | Body: Json Format    |
         | Status code: _200 OK_ |
 
-        ```json
-        {
-            "id": 1,
-            "name": "Fabio",
-            "email": "fabio@kenzie.com.br",
-            "admin": true,
-            "active": true
-        }
-        ```
+    ```json
+    {
+        "id": 1,
+        "name": "Fabio",
+        "email": "fabio@kenzie.com.br",
+        "admin": true,
+        "active": true
+    }
+    ```
 
 -   **PATCH - /users/:id**
 
-    -   Rota de atualização de usuário. Deve ser capaz de atualizar tanto um quanto todos os dados de um usuário.
-    -   O exemplo abaixo foi feito na rota **_/users/1_**.
+    -   Route to update users. Admins should be able to update other user's information.
 
-        | Dados de Envio:    |
-        | ------------------ |
-        | Body: Formato Json |
+    ```json
+    {
+        "name": "Hanna Boppe"
+    }
+    ```
 
-        ```json
-        {
-            "name": "Fabio Junior"
-        }
-        ```
+      | Server response: |
+      | --------------------- |
+      | Body: Formato Json    |
+      | Status code: _200 OK_ |
 
-        | Resposta do servidor: |
-        | --------------------- |
-        | Body: Formato Json    |
-        | Status code: _200 OK_ |
-
-        ```json
-        {
-            "id": 1,
-            "name": "Fabio Junior",
-            "email": "fabio@kenzie.com.br",
-            "admin": true,
-            "active": true
-        }
+    ```json
+    {
+        "id": 1,
+        "name": "Hanna Boppe",
+        "email": "hanna@email.com.br",
+        "admin": true,
+        "active": true
+    }
         ```
 
 -   **DELETE - /users/:id**
 
-    -   Deve ser capaz de fazer **soft delete** em um usuário;
+    -   Route to **soft delete** an user;
 
-            O soft delete é a ação de modificar alguma propriedade de uma tabela que indica que o dado está ativo ou não, nesse caso é a propriedade active da tabela de users, na qual é possível identificar que o mesmo foi "marcado" como deletado, mas suas informações ainda irão permanecer no banco. Sendo uma modificação em vez deleção.
-
-    -   O exemplo abaixo foi feito na rota /users/2
-        | Resposta do servidor: |
+        | Server response: |
         | --------------------- |
-        | Body: Nenhum |
+        | Body: None |
         | Status code: _204 NO CONTENT_ |
 
-        ```json
-          // nenhum dado deve ser retorando
-        ```
 
 -   **PUT - /users/:id/recover**
 
-    -   Deve ser capaz de **_recuperar_** o usuário que foi **_desativado_**.
-    -   O **_active_** deve ser alterado para **_true_**.
-    -   O exemplo abaixo foi feito na rota **_/users/2/recover_**.
+    -   Route to recover a deactivated user
 
-        | Resposta do servidor: |
+        | Server response: |
         | --------------------- |
-        | Body: Formato Json    |
+        | Body: Json Format    |
         | Status code: _200 OK_ |
 
         ```json
         {
             "id": 2,
             "name": "Cauan",
-            "email": "cauan@kenzie.com.br",
+            "email": "cauan@email.com.br",
             "admin": false,
             "active": true
         }
