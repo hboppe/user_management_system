@@ -3,7 +3,7 @@ import { ZodTypeAny } from "zod";
 import { TLoginRequest } from "../../interfaces/session";
 import { TUserRequest } from "../../interfaces/users";
 
-const ensureDataIsValid =
+const ensureDataIsValidMiddleware =
   (schema: ZodTypeAny) => (req: Request, res: Response, next: NextFunction) => {
     const validatedData: TUserRequest | TLoginRequest = schema.parse(req.body);
     
@@ -12,4 +12,4 @@ const ensureDataIsValid =
     return next();
   };
 
-export { ensureDataIsValid };
+export default ensureDataIsValidMiddleware;

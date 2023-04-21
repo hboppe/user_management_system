@@ -5,7 +5,7 @@ import { AppErrors } from "../../error";
 import { TEmailLogin } from "../../interfaces/session";
 import { TUser } from "../../interfaces/users";
 
-const ensureEmailExistsAndUserIsActive = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
+const ensureEmailExistsAndUserIsActiveMiddleware = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
 
   const { email }: TEmailLogin = req.body;
 
@@ -29,4 +29,4 @@ const ensureEmailExistsAndUserIsActive = async (req: Request, res: Response, nex
   return next();
 }
 
-export default ensureEmailExistsAndUserIsActive;
+export default ensureEmailExistsAndUserIsActiveMiddleware;

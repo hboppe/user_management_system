@@ -3,7 +3,7 @@ import { client } from '../../database';
 import { TUserResponse } from '../../interfaces/users';
 import { userSchemaResponse } from '../../schemas/users'
 
-const getUserProfile = async (id: number) => {
+const getUserProfileServices = async (id: number) => {
   const query = `
     SELECT 
       *
@@ -15,4 +15,4 @@ const getUserProfile = async (id: number) => {
   return userSchemaResponse.parse(queryResult.rows[0]);
 }
 
-export default getUserProfile;
+export default getUserProfileServices;

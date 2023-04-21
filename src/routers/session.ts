@@ -8,8 +8,8 @@ const sessionRouter: Router = Router();
 
 sessionRouter.post(
   '',
-  usersMiddlewares.ensureDataIsValid(loginRequestSchema),
-  sessionMiddlewares.ensureEmailExistsAndUserIsActive,
+  usersMiddlewares.ensureDataIsValidMiddleware(loginRequestSchema),
+  sessionMiddlewares.ensureEmailExistsAndUserIsActiveMiddleware,
   sessionController.createSessionControler
 )
 

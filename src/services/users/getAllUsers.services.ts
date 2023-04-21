@@ -3,7 +3,7 @@ import { client } from "../../database";
 import { TAllUsers } from "../../interfaces/users";
 import { allUsersSchema } from "../../schemas/users";
 
-const getAllUsers = async () => {
+const getAllUsersServices = async () => {
 
   const query: string = `
     SELECT 
@@ -22,4 +22,4 @@ const getAllUsers = async () => {
 
 }
 
-export default getAllUsers;
+export default getAllUsersServices;

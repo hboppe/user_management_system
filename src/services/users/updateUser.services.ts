@@ -1,4 +1,3 @@
-import { Response } from "express";
 import format from "pg-format";
 import { AppErrors } from "../../error";
 import { QueryResult } from 'pg';
@@ -6,7 +5,7 @@ import { TUpdateUserRequest, TUserResponse } from "../../interfaces/users";
 import client from '../../database/config';
 import { userSchemaResponse } from "../../schemas/users";
 
-const updateUser = async (userToUpdateId: string, userToUpdateInfos: TUpdateUserRequest): Promise<TUserResponse> => {
+const updateUserServices = async (userToUpdateId: string, userToUpdateInfos: TUpdateUserRequest): Promise<TUserResponse> => {
 
   const query: string = format(`
       UPDATE users
@@ -25,4 +24,4 @@ const updateUser = async (userToUpdateId: string, userToUpdateInfos: TUpdateUser
   return userSchemaResponse.parse(queryResult.rows[0]);
 }
 
-export default updateUser;
+export default updateUserServices;

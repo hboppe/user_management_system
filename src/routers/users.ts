@@ -10,44 +10,44 @@ const usersRouters: Router = Router();
 
 usersRouters.post(
   "",
-  usersMiddlewares.ensureDataIsValid(createUserRequestSchema),
-  usersMiddlewares.ensureEmailDoesNotExist,
+  usersMiddlewares.ensureDataIsValidMiddleware(createUserRequestSchema),
+  usersMiddlewares.ensureEmailDoesNotExistMiddleware,
   usersController.createUserController
 );
 
 usersRouters.patch(
   "/:id",
-  usersMiddlewares.ensureDataIsValid(updateUserRequestSchema),
-  usersMiddlewares.ensureTokenIsValid,
-  usersMiddlewares.ensureUserHasPermission,
+  usersMiddlewares.ensureDataIsValidMiddleware(updateUserRequestSchema),
+  usersMiddlewares.ensureTokenIsValidMiddleware,
+  usersMiddlewares.ensureUserHasPermissionMiddleware,
   usersController.updateUserController
 );
 
 usersRouters.delete(
   '/:id',
-  usersMiddlewares.ensureTokenIsValid,
-  usersMiddlewares.ensureUserHasPermission,
+  usersMiddlewares.ensureTokenIsValidMiddleware,
+  usersMiddlewares.ensureUserHasPermissionMiddleware,
   usersController.deleteUserController
 )
 
 usersRouters.get(
   '',
-  usersMiddlewares.ensureTokenIsValid,
-  usersMiddlewares.ensureUserIsAdmin,
+  usersMiddlewares.ensureTokenIsValidMiddleware,
+  usersMiddlewares.ensureUserIsAdminMiddleware,
   usersController.getAllUsersController
 )
 
 usersRouters.get(
   '/profile',
-  usersMiddlewares.ensureTokenIsValid,
+  usersMiddlewares.ensureTokenIsValidMiddleware,
   usersController.getUserProfileController
 )
 
 usersRouters.put(
   '/:id/recover',
-  usersMiddlewares.ensureTokenIsValid,
-  usersMiddlewares.ensureUserIsAdmin,
-  usersMiddlewares.ensureUserIsNotActive,
+  usersMiddlewares.ensureTokenIsValidMiddleware,
+  usersMiddlewares.ensureUserIsAdminMiddleware,
+  usersMiddlewares.ensureUserIsNotActiveMiddleware,
   usersController.recoverAnUserController
 )
 

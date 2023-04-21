@@ -4,7 +4,7 @@ import { client } from "../../database";
 import { AppErrors } from "../../error";
 import { TUserResponse } from "../../interfaces/users";
 
-const ensureIdExists = async (
+const ensureIdExistsMiddleware = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -26,4 +26,4 @@ const ensureIdExists = async (
   return next();
 };
 
-export default ensureIdExists;
+export default ensureIdExistsMiddleware;

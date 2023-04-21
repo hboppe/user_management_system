@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { AppErrors } from "../../error";
 
-const ensureUserHasPermission = async (req: Request, res: Response, next: NextFunction) => {
+const ensureUserHasPermissionMiddleware = async (req: Request, res: Response, next: NextFunction) => {
   const userId: string = res.locals.decoded.sub;
   const userToUpdateId: string = req.params.id;
   const isUserAdmin: boolean = res.locals.decoded.admin
@@ -11,4 +11,4 @@ const ensureUserHasPermission = async (req: Request, res: Response, next: NextFu
   return next()
 }
 
-export default ensureUserHasPermission;
+export default ensureUserHasPermissionMiddleware;

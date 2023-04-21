@@ -2,7 +2,7 @@ import { QueryResult } from "pg";
 import { client } from "../../database";
 import { userSchemaResponse } from "../../schemas/users";
 
-const recoverUser = async (userId: number) => {
+const recoverUserServices = async (userId: number) => {
 
   const query = `
     UPDATE users
@@ -15,4 +15,4 @@ const recoverUser = async (userId: number) => {
   return userSchemaResponse.parse(queryResult.rows[0]);
 }
 
-export default recoverUser;
+export default recoverUserServices;

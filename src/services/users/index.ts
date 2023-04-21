@@ -1,15 +1,15 @@
-import createUser from './createUser';
-import updateUser from './updateUser';
-import deleteUser from './deleteUser';
-import getAllUsers from './getAllUsers';
-import getUserProfile from './getUserProfile';
-import recoverUser from './recoverUser';
+import createUserServices from './createUser.services';
+import updateUserServices from './updateUser.services';
+import deleteUserServices from './deleteUser.services';
+import getAllUsersServices from './getAllUsers.services';
+import getUserProfileServices from './getUserProfile.services';
+import recoverUserServices from './recoverUser.services';
 
 export  const usersService = {
-  createUser,
-  updateUser,
-  deleteUser,
-  getAllUsers,
-  getUserProfile,
-  recoverUser
+  createUserServices,
+  updateUserServices,
+  deleteUserServices,
+  getAllUsersServices,
+  getUserProfileServices,
+  recoverUserServices
 }

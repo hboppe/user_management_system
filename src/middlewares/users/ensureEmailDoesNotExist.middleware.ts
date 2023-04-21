@@ -4,7 +4,7 @@ import { client } from "../../database";
 import { AppErrors } from "../../error";
 import { TUserResponse } from '../../interfaces/users';
 
-const ensureEmailDoesNotExist = async (
+const ensureEmailDoesNotExistMiddleware = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -27,4 +27,4 @@ const ensureEmailDoesNotExist = async (
   return next();
 };
 
-export default ensureEmailDoesNotExist;
+export default ensureEmailDoesNotExistMiddleware;

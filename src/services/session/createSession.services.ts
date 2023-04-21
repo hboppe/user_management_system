@@ -4,7 +4,7 @@ import { AppErrors } from "../../error";
 import { TLoginRequest } from "../../interfaces/session";
 import 'dotenv/config'
 
-const createSession = (loginData: TLoginRequest, hashedPassword: string, admin: string, id: string): string => {
+const createSessionServices = (loginData: TLoginRequest, hashedPassword: string, admin: string, id: string): string => {
 
   const passwordsMatch: boolean = compareSync(loginData.password, hashedPassword);
 
@@ -20,4 +20,4 @@ const createSession = (loginData: TLoginRequest, hashedPassword: string, admin: 
   return token;
 }
 
-export default createSession;
+export default createSessionServices;

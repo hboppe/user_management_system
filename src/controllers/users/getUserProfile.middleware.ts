@@ -6,7 +6,7 @@ const getUserProfileController = async (req: Request, res: Response): Promise<Re
 
   const id: number = Number(res.locals.decoded.sub)
 
-  const userInfos = await usersService.getUserProfile(id);
+  const userInfos = await usersService.getUserProfileServices(id);
 
   return res.status(200).json(userInfos)
 }

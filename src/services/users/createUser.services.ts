@@ -5,7 +5,7 @@ import client from "../../database/config";
 import { TUserRequest, TUserResponse } from "../../interfaces/users";
 import { userSchemaResponse } from "../../schemas/users";
 
-const createUser = async (userData: TUserRequest): Promise<TUserResponse> => {
+const createUserServices = async (userData: TUserRequest): Promise<TUserResponse> => {
   const hashedPassword = hashSync(userData.password, 12);
 
   userData.password = hashedPassword;
@@ -29,4 +29,4 @@ const createUser = async (userData: TUserRequest): Promise<TUserResponse> => {
   return validatedResponse;
 };
 
-export default createUser;
+export default createUserServices;

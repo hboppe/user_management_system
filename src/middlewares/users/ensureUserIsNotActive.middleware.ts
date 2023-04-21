@@ -3,7 +3,7 @@ import { QueryResult } from "pg";
 import { client } from "../../database";
 import { AppErrors } from "../../error";
 
-const ensureUserIsNotActive = async (req: Request, res: Response, next: NextFunction) => {
+const ensureUserIsNotActiveMiddleware = async (req: Request, res: Response, next: NextFunction) => {
   const userId: number = Number(req.params.id);
 
   const query = `
@@ -18,4 +18,4 @@ const ensureUserIsNotActive = async (req: Request, res: Response, next: NextFunc
   return next();
 }
 
-export default ensureUserIsNotActive;
+export default ensureUserIsNotActiveMiddleware;

@@ -2,7 +2,7 @@ import { QueryResult } from 'pg';
 import { client } from '../../database';
 import { AppErrors } from '../../error';
 
-const deleteUser = async (userToUpdateId: string): Promise<void> => {
+const deleteUserServices = async (userToUpdateId: string): Promise<void> => {
 
   const query: string = 
   `
@@ -17,4 +17,4 @@ const deleteUser = async (userToUpdateId: string): Promise<void> => {
   return;
 }
 
-export default deleteUser;
+export default deleteUserServices;

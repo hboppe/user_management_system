@@ -5,7 +5,7 @@ const deleteUserController = async (req: Request, res: Response): Promise<Respon
 
   const userToUpdateId: string = req.params.id;
   
-  await usersService.deleteUser(userToUpdateId)
+  await usersService.deleteUserServices(userToUpdateId)
 
   return res.status(204).json();
   

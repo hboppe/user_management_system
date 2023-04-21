@@ -1,5 +1,5 @@
-import ensureEmailExistsAndUserIsActive from './ensureEmailExists';
+import ensureEmailExistsAndUserIsActiveMiddleware from './ensureEmailExistsAndUserIsActive.middleware';
 
 export const sessionMiddlewares = {
-  ensureEmailExistsAndUserIsActive
+  ensureEmailExistsAndUserIsActiveMiddleware
 }

@@ -1,5 +1,5 @@
-import createSession from './createSession';
+import createSessionServices from './createSession.services';
 
 export const sessionServices = {
-  createSession
+  createSessionServices
 }

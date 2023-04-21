@@ -1,17 +1,17 @@
-import { ensureDataIsValid } from "./ensureDataIsValid";
-import ensureEmailDoesNotExist from "./ensureEmailDoesNotExist";
-import ensureIdExists from './ensureIdExists';
-import ensureTokenIsValid from './ensureTokenIsValid';
-import ensureUserHasPermission from './ensureUserHasPermission';
-import ensureUserIsAdmin from './ensureUserIsAdmin';
-import ensureUserIsNotActive from './ensureUserIsNotActive';
+import ensureDataIsValidMiddleware from "./ensureDataIsValid.middleware";
+import ensureEmailDoesNotExistMiddleware from "./ensureEmailDoesNotExist.middleware";
+import ensureIdExistsMiddleware from './ensureIdExists.middleware';
+import ensureTokenIsValidMiddleware from './ensureTokenIsValid.middleware';
+import ensureUserHasPermissionMiddleware from './ensureUserHasPermission.middleware';
+import ensureUserIsAdminMiddleware from './ensureUserIsAdmin.middleware';
+import ensureUserIsNotActiveMiddleware from './ensureUserIsNotActive.middleware';
 
 export const usersMiddlewares = {
-  ensureDataIsValid,
-  ensureEmailDoesNotExist,
-  ensureIdExists,
-  ensureTokenIsValid,
-  ensureUserHasPermission,
-  ensureUserIsAdmin,
-  ensureUserIsNotActive
+  ensureDataIsValidMiddleware,
+  ensureEmailDoesNotExistMiddleware,
+  ensureIdExistsMiddleware,
+  ensureTokenIsValidMiddleware,
+  ensureUserHasPermissionMiddleware,
+  ensureUserIsAdminMiddleware,
+  ensureUserIsNotActiveMiddleware
 };

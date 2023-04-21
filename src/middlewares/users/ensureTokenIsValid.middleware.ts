@@ -3,7 +3,7 @@ import { verify } from "jsonwebtoken";
 import { AppErrors } from "../../error";
 import 'dotenv/config';
 
-const ensureTokenIsValid = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
+const ensureTokenIsValidMiddleware = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
 
   const { authorization } = req.headers;
 
@@ -25,4 +25,4 @@ const ensureTokenIsValid = async (req: Request, res: Response, next: NextFunctio
   )
 }
 
-export default ensureTokenIsValid;
+export default ensureTokenIsValidMiddleware;

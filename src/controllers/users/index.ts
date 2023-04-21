@@ -1,9 +1,9 @@
-import createUserController from './createUserController';
-import updateUserController from './updateUserController';
-import deleteUserController from './deleteUserController';
-import getAllUsersController from './getAllUsersController';
-import getUserProfileController from './getUserProfileControler';
-import recoverAnUserController from './recoverAnUserController';
+import createUserController from './createUser.middleware';
+import updateUserController from './updateUser.middleware';
+import deleteUserController from './deleteUser.middleware';
+import getAllUsersController from './getAllUsers.middleware';
+import getUserProfileController from './getUserProfile.middleware';
+import recoverAnUserController from './recoverAnUser.middleware';
 
 export const usersController = {
   createUserController,
