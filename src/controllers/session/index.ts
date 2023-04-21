@@ -1,4 +1,4 @@
-import createSessionControler from './session';
+import createSessionControler from './createSessionController';
 
 export const sessionController = {
   createSessionControler

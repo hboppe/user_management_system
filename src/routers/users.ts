@@ -33,7 +33,22 @@ usersRouters.delete(
 usersRouters.get(
   '',
   usersMiddlewares.ensureTokenIsValid,
-  
+  usersMiddlewares.ensureUserIsAdmin,
+  usersController.getAllUsersController
+)
+
+usersRouters.get(
+  '/profile',
+  usersMiddlewares.ensureTokenIsValid,
+  usersController.getUserProfileController
+)
+
+usersRouters.put(
+  '/:id/recover',
+  usersMiddlewares.ensureTokenIsValid,
+  usersMiddlewares.ensureUserIsAdmin,
+  usersMiddlewares.ensureUserIsNotActive,
+  usersController.recoverAnUserController
 )
 
 export default usersRouters;

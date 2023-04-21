@@ -24,9 +24,12 @@ const userSchema = createUserRequestSchema.extend({
   active: z.boolean()
 })
 
+const allUsersSchema = userSchemaResponse.array();
+
 export {
   createUserRequestSchema,
   userSchemaResponse,
   updateUserRequestSchema,
-  userSchema
+  userSchema,
+  allUsersSchema
 }
