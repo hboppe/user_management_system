@@ -27,38 +27,7 @@ The following technologies were utilized to build this API:
 | PUT | users/:id/recover | Reactivate a user | 
 
 
-# Regras da Aplicação
 
-Deve ser criado um banco de dados em PostgreSQL com uma tabelas que irá armazenar os dados das requisições. Essa tabela deve seguir as seguintes orientações:
-
--   Nome da tabela: **_users_**
-
--   Colunas:
-    -   **id**: _inteiro_, _sequencial_ e _chave primária_.
-    -   **name**: _string_, tamanho máximo de _20_ e _obrigatório_.
-    -   **email**: _string_, tamanho máximo de _100_, _único_ e _obrigatório_.
-    -   **password**: _string_, tamanho máximo de _120_ e _obrigatório_..
-    -   **admin**: _booleano_, _obrigatório_ e _falso_ por padrão.
-    -   **active**: _booleano_, _obrigatório_ e _verdadeiro_ por padrão
-
-<br>
-
--   Nas rotas **POST** e **PATCH**, é necessário **_serializar_** os dados de **_entrada_** utilizando o **_zod_**;
-    -   Chaves incorretas devem ser ignoradas caso enviadas.
--   Na rota **POST /users** as chaves de **_name_**, **_email_** e **_password_** são obrigatórias.
--   Na rota **POST /users**, as chaves **_id_** e **_active_** não devem ser enviadas e devem ser **_ignoradas_** pelo zod.;
-    -   Esses dados devem ser gerados de forma automática pela aplicação.
--   Na rota **POST /users** a chave de **_admin_** é opcional.
-    -   Caso não enviado, o dado será gerado de maneira automática pelo banco.
--   Na rota **PATCH /users**, as chaves **_id_**, **_admin_** e **_active_** **não podem** ser **atualizadas**.
-    -   Caso sejam enviadas devem ser ignoradas;
--   **A senha não deve ser retornada em nenhuma das rotas do serviço;**
-
-#
-
-## **Casos de Erro**
-
-      Todas as regras devem ser feitas através de middlewares;
 
 ### **POST /users** e **PATCH /users**
 
