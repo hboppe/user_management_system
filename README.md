@@ -39,58 +39,54 @@ The following routes don't need a token to be accessed.
 
 - **Request**
     
-```json
+  ```json
   {
-    "name": "Hanna"
+    "name": "Hanna",
+    "email": "hanna@email.com",
+    "password": "P@ssword123",
+    "admin": true
   }
-```
+  ```
         
-    ### Response
+- **Response**
 
+| Status code: _201 CREATED_ |
 
-        | Status code: _201 CREATED_ |
+  ```json
+  {
+      "id": 1,
+      "name": "Hanna",
+      "email": "hanna@email.com.br",
+      "admin": true,
+      "active": true
+  }
+  ```
 
-        ```json
-        {
-            "id": 1,
-            "name": "Hanna",
-            "email": "hanna@email.com.br",
-            "admin": true,
-            "active": true
-        }
-        ```
+-**POST - /login**
 
--   **POST - /login**
+   - It generates a jwt valid token
+    
+- **Request**
 
-    -   Deve ser capaz de gerar um token jwt válido.
+  ```json
+  {
+      "email": "hanna@email.com.br",
+      "password": "P@ssword123"
+  }
+  ```
+ - **Response**
 
-        | Dados de Envio:    |
-        | ------------------ |
-        | Body: Formato Json |
+ | Status code: _200 OK_ |
 
-        ```json
-        {
-            "email": "fabio@kenzie.com.br",
-            "password": "naomaisjunior"
-        }
-        ```
+    ```json
+    {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+    }
+    ```
 
-        | Resposta do servidor: |
-        | --------------------- |
-        | Body: Formato Json    |
-        | Status code: _200 OK_ |
+### **Authenticated routes**
 
-        ```json
-        {
-            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-        }
-        ```
-
-### **Rotas autenticadas**
-
-_Todas as rotas a seguir devem ser autenticas._
-
-No **_header_**(cabeçalho) da requisição deve ser enviado um **_Bearer &lt;token_**&gt;.
+In the **_header_**(header) of the request, a **_Bearer &lt;token_**&gt; must be sent.
 
 | Header                |
 | --------------------- |
