@@ -174,7 +174,7 @@ In the **_header_**(header) of the request, a **_Bearer &lt;token_**&gt; must be
 
 -   **DELETE - /users/:id**
 
-    -   Route to **soft delete** an user;
+    -   Route to **soft delete** a user;
 
         | Server response: |
         | --------------------- |
