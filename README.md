@@ -41,11 +41,8 @@ The following routes don't need a token to be accessed.
     
         ```json
         {
-            "name": "Hanna",
-            "email": "hanna@email.com.br",
-            "password": "P@ssword123",
-            "admin": true,
-            "active": false
+            "email": "fabio@kenzie.com.br",
+            "password": "naomaisjunior"
         }
         ```
         
