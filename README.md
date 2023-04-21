@@ -37,7 +37,7 @@ The following routes don't need a token to be accessed.
 
     - Route to register a user. The admin key is optional, if not sent it will be set to false.
 
-    ### Request
+- ** Request **
     
         ```json
         {
