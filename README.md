@@ -78,11 +78,11 @@ The following routes don't need a token to be accessed.
 
  | Status code: _200 OK_ |
 
-    ```json
-    {
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-    }
-    ```
+  ```json
+  {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+  }
+  ```
 
 ### **Authenticated routes**
 
@@ -109,24 +109,24 @@ In the **_header_**(header) of the request, a **_Bearer &lt;token_**&gt; must be
         | Body: Json Format    |
         | Status code: _200 OK_ |
 
-    ```json
-    [
-        {
-            "id": 1,
-            "name": "hanna",
-            "email": "hanna@email.com.br",
-            "admin": true,
-            "active": true
-        },
-        {
-            "id": 2,
-            "name": "Cauan",
-            "email": "cauan@kenzie.com.br",
-            "admin": false,
-            "active": false
-        }
-    ]
-    ```
+  ```json
+  [
+      {
+          "id": 1,
+          "name": "hanna",
+          "email": "hanna@email.com.br",
+          "admin": true,
+          "active": true
+      },
+      {
+          "id": 2,
+          "name": "Cauan",
+          "email": "cauan@kenzie.com.br",
+          "admin": false,
+          "active": false
+      }
+  ]
+  ```
 
 -   **GET - /users/profile**
 
@@ -137,15 +137,15 @@ In the **_header_**(header) of the request, a **_Bearer &lt;token_**&gt; must be
         | Body: Json Format    |
         | Status code: _200 OK_ |
 
-    ```json
-    {
-        "id": 1,
-        "name": "Fabio",
-        "email": "fabio@kenzie.com.br",
-        "admin": true,
-        "active": true
-    }
-    ```
+  ```json
+  {
+      "id": 1,
+      "name": "Fabio",
+      "email": "fabio@kenzie.com.br",
+      "admin": true,
+      "active": true
+  }
+  ```
 
 -   **PATCH - /users/:id**
 
