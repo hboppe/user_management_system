@@ -39,12 +39,11 @@ The following routes don't need a token to be accessed.
 
 - ** Request **
     
-        ```json
-        {
-            "email": "fabio@kenzie.com.br",
-            "password": "naomaisjunior"
-        }
-        ```
+```json
+  {
+    "name": "Hanna"
+  }
+```
         
     ### Response
 
