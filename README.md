@@ -159,7 +159,7 @@ In the **_header_**(header) of the request, a **_Bearer &lt;token_**&gt; must be
 
       | Server response: |
       | --------------------- |
-      | Body: Formato Json    |
+      | Body: Json Format  |
       | Status code: _200 OK_ |
 
     ```json
@@ -170,7 +170,7 @@ In the **_header_**(header) of the request, a **_Bearer &lt;token_**&gt; must be
         "admin": true,
         "active": true
     }
-        ```
+    ```
 
 -   **DELETE - /users/:id**
 
